@@ -5,5 +5,6 @@
 
 void Biome::PlayBiome()
 {
+    // Haha!
 	std::cout << "I DONT KNOW WHAT THE FUCK I AM ";
 }

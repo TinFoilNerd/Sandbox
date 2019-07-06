@@ -9,7 +9,11 @@ public:
 	World();
 	int GetCurrentLocation();
 	std::vector <std::vector<int> > GenarateWorld();
+
+    // Yes! Const-correctness! Whatever learning resource you're using is good.
+    // Use const wherever you can!
 	int GetWorldSize() const;
+
 	int AskForWorldSize();
 	std::vector <std::vector<int> > GetWorldData() const;
 	int GetTileIDAt(int x, int y) const;

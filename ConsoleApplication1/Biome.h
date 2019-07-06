@@ -5,6 +5,10 @@
 class Biome
 {
 public:
+    // Nice! Whenever you use virtual functions I'd advise adding a virtual destructor.
+    // See https://stackoverflow.com/questions/461203/when-to-use-virtual-destructors
+    // It's an annoying quirk of C++ that can sometimes bite you if you leave the virtual
+    // destructor out.
 	virtual void PlayBiome() = 0;
 private:
 	bool HasBeenHere = false;

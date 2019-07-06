@@ -3,6 +3,9 @@
 class Cow : public Creature
 {
 public:
+    // The "name" string will be copied into the constructor, then copied again
+    // into the Name variable. To cut back on the copies you could do:
+    // const std::string& name
 	Cow(std::string name,int XPos,int YPos);
 	void Spawn();
 	void Die();
