@@ -10,6 +10,12 @@ void BadLands::PlayBiome()
 	{
 		std::srand(std::time(nullptr));
 		Index = rand() % 5;
+
+        /*
+        You could do something like this to cut down the amount of code:
+
+        std::cout << "You " << (HasBeenHere ? "return to the" : "arrive in a") << " dark gloomy ..." << std::endl;
+        */
 		switch (Index)
 		{
 		case 0:

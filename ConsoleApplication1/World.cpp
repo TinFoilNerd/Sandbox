@@ -24,9 +24,14 @@ int World::GetCurrentLocation()
 //Creates a 2D Array with the Given World Size of the type Integer with randomly assigned values in each "Coordinate"
  std::vector <std::vector<int> > World::GenarateWorld()
 {
+    // Nice to see use of nullptr!
 	std::srand(std::time(nullptr));
 	std::vector <std::vector<int> > WorldX;
+
+    // Since GenarateWorld is a member function, we *could* bypass the getter and use WorldSize.
+    // Not a big deal though.
 	int Size = GetWorldSize();
+
 	XWorldScenes.resize(Size, std::vector<Scene>(Size));
 	WorldX.resize(Size, std::vector<int>(Size));
 	int SceneID = 0;
@@ -44,6 +49,14 @@ int World::GetCurrentLocation()
 			
 	}
 	
+    /*
+    This will assign WorldY a copy of WorldX. If you want to avoid the copy and directly
+    *move* the contents of WorldX into WorldY, you can do this:
+
+    WorldY = std::move(WorldX);
+
+    Yet another quirk of C++!
+    */
 	WorldY = WorldX;
 	return WorldY;
 }
@@ -67,6 +80,7 @@ int World::GetCurrentLocation()
 	 return WorldSize;
  }
 
+ // I feel like printing and getting the data should be two separate functions.
  std::vector <std::vector<int> > World::GetWorldData() const
  {
 	 for (int i = 0; i < WorldY.size(); i++)
